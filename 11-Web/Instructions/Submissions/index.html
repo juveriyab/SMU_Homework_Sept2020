@@ -1,0 +1,106 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hw 11</title>
+    <!-- Bootstrap and Bootswatch CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/minty/bootstrap.min.css" integrity="sha384-H4X+4tKc7b8s4GoMrylmy2ssQYpDHoqzPa9aKXbDwPoPUA3Ra8PA5dGzijN+ePnH" crossorigin="anonymous">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- JS for Bootstrap -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #F1AB6F;">
+        <a class="navbar-brand" href="index.html"><img src="data:image/png;base64,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"
+                height="50px" width="50px"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor04" aria-controls="navbarColor04" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+        <div class="collapse navbar-collapse" id="navbarColor04">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Welcome</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Plots</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="plots/humidity.html">Humidity</a>
+                        <a class="dropdown-item" href="plots/pressure.html">Pressure</a>
+                        <a class="dropdown-item" href="plots/temperature.html">Temperature</a>
+                        <a class="dropdown-item" href="plots/windspeed.html">Wind Speed</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="comparisons.html">Comparisons</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="data.html">Data</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row" style="margin-top:5%">
+            <div class="col-md-8" style="border: 5px solid">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1>Latitude vs X</h1>
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <img src="assets/images/Fig1.png" style="float: left;zoom:0.8">
+                            <p>The purpose of this assignment was to analyze how weather changes as you get closer to the equator. To accomplish this analysis, I pulled the data and visualizations used in the Week 6 - Python API’s homework. My dataset included
+                                545 cities around the world, chosen at random.
+                                <br><br>My graphs include information on humidity, pressure, temperature, and wind speed. As you navigate this site by clicking on the various graphs, you’ll be able to see information on the individual factors as well
+                                as comparisons drawn between the four. You'll also find a table of the entire dataset that was used.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" style="border: 5px solid;">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1>Visualizations</h1>
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a href="plots/humidity.html"><img src="assets/images/Fig1.png" style="width: 100%;"></a>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="plots/pressure.html"><img src="assets/images/Fig2.png" style="width: 100%;"></a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a href="plots/temperature.html"><img src="assets/images/Fig3.png" style="width: 100%;"></a>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="plots/windspeed.html"><img src="assets/images/Fig4.png" style="width: 100%;"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
