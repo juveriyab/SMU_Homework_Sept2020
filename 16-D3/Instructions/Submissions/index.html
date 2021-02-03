@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Interactive Scatter Plot</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/d3Style.css">
+
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.min.js"></script> -->
+    <script src="https://unpkg.com/d3-v6-tip@1.0.6/build/d3-v6-tip.js"></script>
+    <script type="text/javascript" src="assets/js/app.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Interactive Scatter Plot</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="scatter">
+                    <!-- We append our chart here. -->
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="article">
+                    <h2>Correlations Discovered Between Health Risks and Age, Income</h2>
+                    <p>The plot above showcases the percentage of each state that lacks healthcare along with how much of the states population is in poverty. Hover over the circles to view the exact percentages.</p>
+
+                    <p>The data plotted above shows somewhat of a correlation between lack of healthcare and poverty, given a few outliers. Gor example, Massachusetts' population has the lowest percent that lacks healthcare but its poverty percent is higher
+                        compared to other states such as Maryland. Overall, a steady incline is shown on the graph, making the correlation positive.</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer-->
+    <div id="footer">
+        <p>SMU Data Science BootCamp &copy; 2021</p>
+    </div>
+</body>
+
+</html>
