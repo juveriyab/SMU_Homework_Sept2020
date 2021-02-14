@@ -13,11 +13,11 @@ function buildMap() {
     var change_text = $("#timeframe option:selected").text();
     $("#maptitle").text(`All Earthquakes Recorded by the USGS for the ${change_text}`);
 
-    // Store our API endpoint as queryUrl
+
     var timeframe = $("#timeframe").val();
     var queryUrl = `https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/${timeframe}.geojson`
 
-    // Perform a GET request to the query URL
+    // Perform a GET request
     $.ajax({
         type: "GET",
         url: queryUrl,
@@ -27,7 +27,7 @@ function buildMap() {
                 type: "GET",
                 url: "/static/data/PB2002_boundaries.json",
                 success: function(plates) {
-                    //BUILD WITH BOTH DATASETS
+                    //BUILDING 2 DATASETS
                     makeMap(data, plates);
                 },
                 error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -48,7 +48,7 @@ function makeMap(data, plates) {
     $("#mapcontainer").append(`<div id="mapid"></div>`);
 
     // Step 0: Create the Tile Layers
-    // Add a tile layer
+
     var dark = L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
         attribution: "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>",
         tileSize: 512,
@@ -68,14 +68,14 @@ function makeMap(data, plates) {
     });
 
     // STEP 1: INIT MAP
-    // Create a map object
+    // Create map object
     var myMap = L.map("mapid", {
         center: [33.0, -96.0],
         zoom: 2,
         layers: [light, dark]
     });
 
-    //Step 2: Create Markers
+    //Step 2:  Markers
     var earthquakes = [];
     var circle_list = [];
     data.features.forEach(function(earthquake) {
@@ -94,7 +94,7 @@ function makeMap(data, plates) {
         circle_list.push(circle);
     });
 
-    // create tectonic plates
+    // tectonic plates
     var tectonic_plates = L.geoJSON(plates, {
         color: "purple",
         weight: 3
@@ -103,10 +103,10 @@ function makeMap(data, plates) {
 
     var marker_group = L.layerGroup(earthquakes);
     var marker_group2 = L.layerGroup(circle_list);
-    var tectonic_layer = L.layerGroup([tectonic_plates]); // note this has to be a list
+    var tectonic_layer = L.layerGroup([tectonic_plates]);
 
     //STEP 3: Create Layers
-    // Create Layer Legend
+
     var baseMaps = {
         "Light Mode": light,
         "Dark Mode": dark
@@ -118,21 +118,21 @@ function makeMap(data, plates) {
         "Tectonic Plates": tectonic_layer
     };
 
-    // Slap Layer Legend onto the map
+    // put Layer Legend on map
     L.control.layers(baseMaps, overlayMaps).addTo(myMap);
 
     // add layers pre-clicked to map
     tectonic_plates.addTo(myMap);
     marker_group2.addTo(myMap);
 
-    // Step 4: CREATE THE LEGEND (of Zelda)
+    // Step 4: CREATE LEGEND
 
-    // Set up the legend
+    // Slegend
     var legend = L.control({ position: "bottomright" });
     legend.onAdd = function() {
         var div = L.DomUtil.create("div", "info legend");
 
-        // create legend as raw html
+        // legend as raw html
         var legendInfo = `<h4 style = "margin-bottom:10px"> Earthquake Depth </h4>
         <div>
         <div style = "background:#98ee00;height:10px;width:10px;display:inline-block"> </div> 
@@ -163,7 +163,7 @@ function makeMap(data, plates) {
         return (div)
     }
 
-    // Adding legend to the map
+    // Add legend to map
     legend.addTo(myMap);
 
 }
@@ -200,7 +200,7 @@ function createMarkerOptions(feature) {
 
 // called in the create circles
 function onEachFeature(feature, layer) {
-    // does this feature have a property named popupContent?
+
     if (feature.properties && feature.properties.place) {
         layer.bindPopup(feature.properties.title);
     }
