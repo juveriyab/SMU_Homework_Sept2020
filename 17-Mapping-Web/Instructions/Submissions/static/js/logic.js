@@ -25,7 +25,7 @@ function buildMap() {
             // make second call
             $.ajax({
                 type: "GET",
-                url: "/static/data/PB2002_boundaries.json",
+                url: "/SMU_Homework_Sept2020/17-Mapping-Web/Instructions/Submissions/static/data/PB2002_boundaries.json",
                 success: function(plates) {
                     //BUILDING 2 DATASETS
                     makeMap(data, plates);
